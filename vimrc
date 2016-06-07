@@ -25,6 +25,7 @@ function s:StartVundle()
   Plugin 'gregsexton/gitv'
   Plugin 'Lokaltog/powerline'
   Plugin 'tpope/vim-pathogen'
+  Plugin 'ctrlpvim/ctrlp.vim'
 
   " Syntastic checker-ek:
   " c:      gcc, splint
