@@ -61,3 +61,6 @@ ln -sf $HOME/dotfiles/tmux.conf $HOME/.tmux.conf
 
 # Setup git
 ln -sf $HOME/dotfiles/gitconfig $HOME/.gitconfig
+
+# Setup gdb
+ln -sf $HOME/dotfiles/gdbinit $HOME/.gdbinit
