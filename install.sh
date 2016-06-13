@@ -64,3 +64,7 @@ ln -sf $HOME/dotfiles/gitconfig $HOME/.gitconfig
 
 # Setup gdb
 ln -sf $HOME/dotfiles/gdbinit $HOME/.gdbinit
+
+# Setup ack
+sudo ln -sf /usr/bin/ack-grep /usr/bin/ack
+ln -sf $HOME/dotfiles/ackrc $HOME/.ackrc
