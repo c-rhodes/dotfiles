@@ -26,6 +26,8 @@ function s:StartVundle()
   Plugin 'Lokaltog/powerline'
   Plugin 'tpope/vim-pathogen'
   Plugin 'ctrlpvim/ctrlp.vim'
+  Plugin 'rust-lang/rust.vim'
+  Plugin 'dhruvasagar/vim-table-mode'
 
   " Syntastic checker-ek:
   " c:      gcc, splint

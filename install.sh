@@ -51,20 +51,20 @@ curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | 
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 # Setup zsh
-ln -sf $HOME/dotfiles/zshrc $HOME/.zshrc
+ln -sf $HOME/workspace/dotfiles/zshrc $HOME/.zshrc
 
 # Setup vim
-ln -sf $HOME/dotfiles/vimrc $HOME/.vimrc
+ln -sf $HOME/workspace/dotfiles/vimrc $HOME/.vimrc
 
 # Setup tmux
-ln -sf $HOME/dotfiles/tmux.conf $HOME/.tmux.conf
+ln -sf $HOME/workspace/dotfiles/tmux.conf $HOME/.tmux.conf
 
 # Setup git
-ln -sf $HOME/dotfiles/gitconfig $HOME/.gitconfig
+ln -sf $HOME/workspace/dotfiles/gitconfig $HOME/.gitconfig
 
 # Setup gdb
-ln -sf $HOME/dotfiles/gdbinit $HOME/.gdbinit
+ln -sf $HOME/workspace/gdbinit $HOME/.gdbinit
 
 # Setup ack
 sudo ln -sf /usr/bin/ack-grep /usr/bin/ack
-ln -sf $HOME/dotfiles/ackrc $HOME/.ackrc
+ln -sf $HOME/workspace/dotfiles/ackrc $HOME/.ackrc

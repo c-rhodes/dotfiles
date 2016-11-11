@@ -27,4 +27,6 @@
 [merge]
     conflictStyle = diff3
 [core]
-	editor = vim
+    editor = vim
+[diff]
+    compactionHeuristic = true
