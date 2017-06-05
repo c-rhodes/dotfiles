@@ -28,6 +28,8 @@ function s:StartVundle()
   Plugin 'ctrlpvim/ctrlp.vim'
   Plugin 'rust-lang/rust.vim'
   Plugin 'dhruvasagar/vim-table-mode'
+  Plugin 'leafgarland/typescript-vim'
+  Plugin 'dylon/vim-antlr'
 
   " Syntastic checker-ek:
   " c:      gcc, splint
@@ -119,3 +121,4 @@ syntax enable
 colorscheme default 
 set background=light
 set backspace=2
+let g:syntastic_python_checkers=['flake8']
