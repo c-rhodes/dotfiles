@@ -30,6 +30,8 @@ function s:StartVundle()
   Plugin 'dhruvasagar/vim-table-mode'
   Plugin 'leafgarland/typescript-vim'
   Plugin 'dylon/vim-antlr'
+  Plugin 'sukima/xmledit'
+  Plugin 'tpope/vim-surround'
 
   " Syntastic checker-ek:
   " c:      gcc, splint
@@ -47,8 +49,6 @@ function s:StartVundle()
   " Plugin 'git://git.wincent.com/command-t.git'
 
   " __ LOCAL REPOS ____________________________
-
-  Plugin 'file://~/.vim/bundle/vegyes'
 
   filetype plugin indent on
 
@@ -122,3 +122,18 @@ colorscheme default
 set background=light
 set backspace=2
 let g:syntastic_python_checkers=['flake8']
+let g:syntastic_htmldjango_checkers=['w3']
+let g:syntastic_html_checkers=['w3']
+au BufNewFile,BufRead *.html setlocal filetype=html
+
+fun! <SID>StripTrailingWhitespaces()
+    let l = line(".")
+    let c = col(".")
+    %s/\s\+$//e
+    call cursor(l, c)
+endfun
+
+autocmd FileType c,cpp,java,php,ruby,python autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+
+set colorcolumn=120
+:hi ColorColumn guibg=#2d2d2d ctermbg=246
