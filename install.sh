@@ -63,8 +63,12 @@ ln -sf $HOME/workspace/dotfiles/tmux.conf $HOME/.tmux.conf
 ln -sf $HOME/workspace/dotfiles/gitconfig $HOME/.gitconfig
 
 # Setup gdb
-ln -sf $HOME/workspace/gdbinit $HOME/.gdbinit
+ln -sf $HOME/workspace/dotfiles/gdbinit $HOME/.gdbinit
 
 # Setup ack
 sudo ln -sf /usr/bin/ack-grep /usr/bin/ack
 ln -sf $HOME/workspace/dotfiles/ackrc $HOME/.ackrc
+
+# Setup IPython
+ipython profile create
+ln -sf $HOME/workspace/dotfiles/ipython_config.py $HOME/.ipython/profile_default/ipython_config.py

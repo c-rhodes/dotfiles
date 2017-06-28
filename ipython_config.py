@@ -33,10 +33,16 @@
 # c.InteractiveShellApp.exec_files = []
 
 # lines of code to run at IPython startup.
-c.InteractiveShellApp.exec_lines = ['%autoreload 2']
+# autoreload works poorly with Django, disable for now
+# c.InteractiveShellApp.exec_lines = ['%autoreload 2']
+c.InteractiveShellApp.exec_lines = [
+    'import matplotlib.pyplot as plt',
+    'import numpy as np',
+    'import pandas as pd',
+]
 
 # A list of dotted module names of IPython extensions to load.
-c.InteractiveShellApp.extensions = ['autoreload']
+# c.InteractiveShellApp.extensions = ['autoreload']
 
 # dotted module name of an IPython extension to load.
 # c.InteractiveShellApp.extra_extension = ''
@@ -313,10 +319,10 @@ c.InteractiveShellApp.extensions = ['autoreload']
 # c.TerminalInteractiveShell.display_completions = 'multicolumn'
 
 # Shortcut style to use at the prompt. 'vi' or 'emacs'.
-# c.TerminalInteractiveShell.editing_mode = 'emacs'
+c.TerminalInteractiveShell.editing_mode = 'vi'
 
 # Set the editor used by IPython (default to $EDITOR/vi/notepad).
-# c.TerminalInteractiveShell.editor = 'vi'
+c.TerminalInteractiveShell.editor = 'vi'
 
 # Highlight matching brackets .
 # c.TerminalInteractiveShell.highlight_matching_brackets = True
