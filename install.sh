@@ -72,3 +72,6 @@ ln -sf $HOME/workspace/dotfiles/ackrc $HOME/.ackrc
 # Setup IPython
 ipython profile create
 ln -sf $HOME/workspace/dotfiles/ipython_config.py $HOME/.ipython/profile_default/ipython_config.py
+
+# Setup ctags
+ln -sf $HOME/workspace/dotfiles/ctags $HOME/.ctags
