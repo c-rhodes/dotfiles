@@ -6,4 +6,5 @@
 --exclude=log/*
 
 # Ignore Python imports
+# ctags --list-kinds=python
 --python-kinds=-i

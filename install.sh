@@ -5,32 +5,41 @@
 
 set -eu
 
-# Disable annoying bits of unity
-if type gsettings >/dev/null 2>&1; then
-    gsettings set com.canonical.Unity.Lenses remote-content-search "none"
-    gsettings set com.canonical.Unity.ApplicationsLens display-available-apps false
-fi
+PACKAGES="\
+    ack-grep \
+    build-essential \
+    cscope \
+    exuberant-ctags \
+    curl \
+    git \
+    git-core \
+    git-extras \
+    htop \
+    ipython \
+    ipython3 \
+    python3-dev \
+    python3-pip \
+    python-dev \
+    python-pip \
+    python-virtualenv \
+    tmux \
+    vim \
+    virtualenvwrapper \
+    zsh \
+    "
 
-sudo apt-get update
-sudo apt-get install -y \
-        build-essential \
-        ack-grep \
-	curl \
-	htop \
-	git \
-	git-core \
-	git-extras \
-	vim \
-	zsh \
-	tmux \
-	ipython \
-	ipython3 \
-	python-dev \
-	python-pip \
-	python-virtualenv \
-	python3-dev \
-	python3-pip \
-	virtualenvwrapper \
+sudo apt update
+sudo apt install -y $PACKAGES
+
+set +e
+
+if command -v gsettings >/dev/null; then
+    if [ "$(lsb_release -is)" = "Ubuntu" ]; then
+        # Disable annoying bits of unity
+        gsettings set com.canonical.Unity.Lenses remote-content-search "none"
+        gsettings set com.canonical.Unity.ApplicationsLens display-available-apps false
+    fi
+fi
 
 # Change default shell to zsh
 chsh -s $(which zsh)
