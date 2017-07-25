@@ -1,113 +1,24 @@
 " ~/.vimrc
 " Cullen Rhodes [rhodes.cullen@gmail.com]
 
-"                                STARTVUNDLE
-" https://github.com/VundleVim/Vundle.vim/issues/414
-" ____________________________________________________________________________
+" vim-plug configuration (package manager)
+" https://github.com/junegunn/vim-plug
 
-function s:StartVundle()
+" :PlugInstall to install plugins.
+call plug#begin('~/.vim/plugged')
 
-  filetype off
-  call vundle#rc()
+Plug 'scrooloose/syntastic'  " Syntax checking
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'rust-lang/rust.vim'
+Plug 'dhruvasagar/vim-table-mode'
+Plug 'dylon/vim-antlr'
+Plug 'sukima/xmledit'
+Plug 'tpope/vim-surround'
+Plug 'vim-scripts/taglist.vim'
+Plug 'dkprice/vim-easygrep'
 
-  Plugin 'gmarik/vundle'
-
-  " __ GITHUB _________________________________
-
-  Plugin 'altercation/vim-colors-solarized'
-  Plugin 'itchyny/lightline.vim'
-  Plugin 'scrooloose/nerdtree'
-  Plugin 'scrooloose/nerdcommenter'
-  Plugin 'majutsushi/tagbar'
-  Plugin 'fs111/pydoc.vim'
-  Plugin 'scrooloose/syntastic'
-  Plugin 'tpope/vim-fugitive'
-  Plugin 'gregsexton/gitv'
-  Plugin 'Lokaltog/powerline'
-  Plugin 'tpope/vim-pathogen'
-  Plugin 'ctrlpvim/ctrlp.vim'
-  Plugin 'rust-lang/rust.vim'
-  Plugin 'dhruvasagar/vim-table-mode'
-  Plugin 'leafgarland/typescript-vim'
-  Plugin 'dylon/vim-antlr'
-  Plugin 'sukima/xmledit'
-  Plugin 'tpope/vim-surround'
-
-  " Syntastic checker-ek:
-  " c:      gcc, splint
-  " python: flake8, pylint
-
-  " __ VIM-SCRIPTS ____________________________
-
-  Plugin 'Align',
-  Plugin 'EasyGrep',
-  Plugin 'NumUtils',
-  Plugin 'vis'
-
-  " __ OTHER REPOS ____________________________
-
-  " Plugin 'git://git.wincent.com/command-t.git'
-
-  " __ LOCAL REPOS ____________________________
-
-  filetype plugin indent on
-
-endfunction
-
-"                               INSTALLVUNDLE
-" ____________________________________________________________________________
-"
-" Cloning vundle to ~/.vim/bundle/vundle
-
-function s:InstallVundle()
-
-  let vundle_repo = 'https://github.com/gmarik/vundle.git'
-  let path = substitute( $HOME . '/.vim/bundle/vundle', '/', has( 'win32' ) ? '\\' : '/', 'g' )
-
-  if system( 'git --version' ) !~ '^git'
-    echohl WarningMsg | echomsg 'Git is not available.' | echohl None
-    return
-  endif
-
-  let install = confirm( 'Install vundle?', "&Yes\n&No", 2, 'Qusetion' )
-  if install == 2
-    return
-  endif
-
-  if ! isdirectory( path )
-    silent! if ! mkdir( path, 'p' )
-      echohl ErrorMsg | echomsg 'Cannot create directory (may be a regular file): ' . path | echohl None
-      return
-    endif
-  endif
-
-  echo 'Cloning vundle...'
-  if system( 'git clone "' . vundle_repo . '" "' . path . '"'  ) =~ 'fatal'
-    echohl ErrorMsg | echomsg 'Cannot clone ' . vundle_repo . ' (' . path . ' may be not empty)' | echohl None
-    return
-  endif
-
-  call s:StartVundle()
-  PluginInstall
-
-endfunction
-
-"                           START / INSTALL VUNDLE
-" ____________________________________________________________________________
-
-set nocompatible
-set runtimepath+=$HOME/.vim/bundle/vundle/
-runtime autoload/vundle.vim
-
-if ! exists( '*vundle#rc' )
-  autocmd  VimEnter  *  call s:InstallVundle()
-else
-  call s:StartVundle()
-endif
-
-execute pathogen#infect()
-syntax on
-filetype indent plugin on
+" Initialize plugin system
+call plug#end()
 
 set tabstop=8
 set expandtab
@@ -121,10 +32,6 @@ syntax enable
 colorscheme default 
 set background=light
 set backspace=2
-let g:syntastic_python_checkers=['flake8']
-let g:syntastic_htmldjango_checkers=['w3']
-let g:syntastic_html_checkers=['w3']
-au BufNewFile,BufRead *.html setlocal filetype=html
 
 fun! <SID>StripTrailingWhitespaces()
     let l = line(".")
@@ -137,3 +44,15 @@ autocmd FileType c,cpp,java,php,ruby,python autocmd BufWritePre <buffer> :call <
 
 set colorcolumn=120
 :hi ColorColumn guibg=#2d2d2d ctermbg=246
+
+let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_c_include_dirs = ['/home/cullenrhodes/workspace/llvm/llvm/include/']
+let g:syntastic_cpp_include_dirs = ['/home/cullenrhodes/workspace/llvm/install/include']
+
+" LLVM Ctags index
+:set tags+=$HOME/workspace/llvm/llvm/tags
+
+" CTAGS
+" -----
+" Ctrl + [ - Open definition in a new tab
+map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
