@@ -55,6 +55,11 @@ plugins=(git virtualenvwrapper python pip ubuntu)
 
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 export WORKON_HOME=~/Envs
+
+# LLVM configuration
+export LLVM_INSTALL_PREFIX="$HOME/workspace/llvm/install"
+export PATH="$PATH:$LLVM_INSTALL_PREFIX/bin"
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 eval `dircolors ~/dircolors-solarized/dircolors.ansi-dark`
