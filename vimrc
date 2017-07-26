@@ -29,6 +29,7 @@ set ruler           " display a ruler
 set nu              " display line numbers
 set colorcolumn=80  " display a bar a 80 columns
 set history=1000    " increase command history
+set incsearch       " incrementally search during / command
 set backspace=indent,eol,start " make backspace delete lots of things
 
 " Use the tab completion menu and ignore certain files
