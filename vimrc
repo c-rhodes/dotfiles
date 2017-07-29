@@ -27,7 +27,8 @@ set expandtab       " expand tab characters to spaces
 set autoindent      " use autoindent
 set ruler           " display a ruler
 set nu              " display line numbers
-set colorcolumn=80  " display a bar a 80 columns
+set textwidth=0     " turn off wordwrap while editing
+set colorcolumn=81  " display a bar at 81 columns
 set history=1000    " increase command history
 set incsearch       " incrementally search during / command
 set backspace=indent,eol,start " make backspace delete lots of things
@@ -66,3 +67,7 @@ let g:syntastic_cpp_include_dirs = [
 " Ctags config
 " Ctrl + [ - Open definition in a new tab
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+
+" Project specific settings
+" autocmd BufNewFile,BufRead /path/to/project/*
+"    \set colorcolumn=120
