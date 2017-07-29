@@ -66,6 +66,8 @@ eval `dircolors ~/dircolors-solarized/dircolors.ansi-dark`
 
 source $ZSH/oh-my-zsh.sh
 
+export GPGKEY=63B36F2E
+
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
