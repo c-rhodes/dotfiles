@@ -1,8 +1,0 @@
---color
-
---ignore-dir=build/
-
---ignore-file=match:.gitignore
-
-# vim swap files
---ignore-file=match:/[._].*\.swp$/

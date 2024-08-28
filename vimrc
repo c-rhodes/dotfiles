@@ -6,14 +6,6 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'scrooloose/syntastic'  " Syntax checking
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'rust-lang/rust.vim'
-Plug 'dhruvasagar/vim-table-mode'
-Plug 'dylon/vim-antlr'
-Plug 'sukima/xmledit'
-Plug 'tpope/vim-surround'
-Plug 'vim-scripts/taglist.vim'
-Plug 'dkprice/vim-easygrep'
 
 " Initialize plugin system
 call plug#end()
@@ -60,14 +52,3 @@ let g:syntastic_c_include_dirs = [
 let g:syntastic_cpp_include_dirs = [
     \'/home/cullenrhodes/workspace/llvm/install/include'
     \]
-
-" LLVM Ctags index
-:set tags+=$HOME/workspace/llvm/llvm/tags
-
-" Ctags config
-" Ctrl + [ - Open definition in a new tab
-map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
-
-" Project specific settings
-" autocmd BufNewFile,BufRead /path/to/project/*
-"    \set colorcolumn=120
